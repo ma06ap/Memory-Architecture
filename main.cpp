@@ -1,12 +1,11 @@
-#include <iostream>
+#include "mainwindow.h"
 
-#include "Disk.h"
-#include "RAM.h"
-#include "Tools.h"
-#include "Cache.h"
+#include <QApplication>
 
-
-int main() {
-    std::cout << "Hello, World!" << std::endl;
-    return 0;
+int main(int argc, char *argv[])
+{
+    QApplication a(argc, argv);
+    MainWindow w;
+    w.show();
+    return a.exec();
 }
