@@ -11,13 +11,19 @@ using namespace std;
 
 class Disk {
     int baseDelay;
+    uint64_t size;
 public:
+    Disk (int baseDelay,uint64_t size) {
+        this->baseDelay = baseDelay;
+        this->size = size;
+    }
     bool getData(uint64_t address) {
         return true;
     }
     int getDelay() {
-        return baseDelay*(100+random(-10, 10))/100;
+        return baseDelay*(100-random(-5, 90))/100.0;
     }
+    uint64_t getSize() { return size; }
 };
 
 
