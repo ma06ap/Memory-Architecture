@@ -9,6 +9,7 @@
 #include <random>    // random engine and distribution
 #include <stdexcept> // exceptions
 #include <ctime>
+#include <chrono>
 
 
 inline int random(const int min, const int max)
@@ -22,9 +23,10 @@ inline int random(const int min, const int max)
     return gen;
 }
 
-int32_t unix_time_32()
+int64_t unixTime()
 {
-    return static_cast<int32_t>(std::time(nullptr));
+    using namespace std::chrono;
+    return duration_cast<microseconds>(system_clock::now().time_since_epoch()).count();
 }
 
 
