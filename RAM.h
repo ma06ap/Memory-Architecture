@@ -13,7 +13,7 @@
 
 using namespace std;
 
-enum Replacement {LRU = 0, FIFO = 1, RR = 2};
+
 
 class RAM : public Memory {
 private:
