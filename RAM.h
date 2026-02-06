@@ -46,14 +46,12 @@ public:
             pages.push_back({unixTime(), address/pageSize});
         }
         else {
-            // replace
+            replace(address);
         }
     }
     void replacePage(uint64_t address) {
         uint64_t pageNumber = address / pageSize;
-        // switch (policy) {
             if (policy == LRU) {
-                // find the least recently used page
                 uint32_t lruTime = pages[0].first;
                 for (auto& page : pages) {
                     if (page.first < lruTime) {
@@ -68,15 +66,9 @@ public:
                     }
                 }
             } else if (policy == FIFO) {
-                // case FIFO:
-                // find the first page that was added
                 pages.erase(pages.begin());
                 pages.push_back({unixTime(), pageNumber});
-                // break;
             } else if (policy == Random) {
-            // case Random:
-                // randomly select a page to replace
-                // break;
                 pages.erase(pages.begin() + random(0, pages.size() - 1));
                 pages.push_back({unixTime(), pageNumber});
             }
@@ -85,7 +77,7 @@ public:
         return baseDelay+(random(-10, 10))/100.0*baseDelay;
     }
     void replace(uint64_t address) override {
-        // RAM does not need to replace data, so this function can be left empty
+        replacePage(address);
     }
 };
 
