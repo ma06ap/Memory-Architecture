@@ -86,3 +86,6 @@ This project was developed as part of a **Computer Architecture course** to stud
 - Memory hierarchy behavior
 - Cache organization
 - The impact of replacement policies on performance
+
+<img width="1919" height="1075" alt="image" src="https://github.com/user-attachments/assets/7f3ac147-c272-4d13-b91b-e52ceba97b37" />
+
