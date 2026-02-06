@@ -1,20 +1,9 @@
-//
-// Created by matin on 2/6/26.
-//
-
 #ifndef MEMORY_ARCHITECTURE_RAM_H
 #define MEMORY_ARCHITECTURE_RAM_H
-
 #include "Memory.h"
 #include <vector>
-#include <algorithm>
-
 #include "Tools.h"
-
 using namespace std;
-
-
-
 class RAM : public Memory {
 private:
     uint16_t pageSize;
@@ -51,6 +40,7 @@ public:
         }
     }
     void replacePage(uint64_t address) {
+        if (pages.empty()) return;
         uint64_t pageNumber = address / pageSize;
             if (policy == LRU) {
                 uint64_t lruTime = pages[0].first;
@@ -81,6 +71,4 @@ public:
         replacePage(address);
     }
 };
-
-
-#endif //MEMORY_ARCHITECTURE_RAM_H
+#endif
