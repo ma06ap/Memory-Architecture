@@ -8,6 +8,7 @@
 // #include <cstdint>   // uint64_t
 #include <random>    // random engine and distribution
 #include <stdexcept> // exceptions
+#include <ctime>
 
 
 inline int random(const int min, const int max)
@@ -19,6 +20,11 @@ inline int random(const int min, const int max)
     static int gen(rd());    // 64-bit Mersenne Twister
 
     return gen;
+}
+
+int32_t unix_time_32()
+{
+    return static_cast<int32_t>(std::time(nullptr));
 }
 
 
