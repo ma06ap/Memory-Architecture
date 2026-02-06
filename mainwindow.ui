@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+  <class>MainWindow</class>
+  <widget class="QMainWindow" name="MainWindow">
+    <property name="geometry">
+      <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1000</width>
+        <height>800</height>
+      </rect>
+    </property>
+    <property name="windowTitle">
+      <string>Advanced Memory Simulator (Fixed)</string>
+    </property>
+    <widget class="QWidget" name="centralwidget">
+      <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+          <layout class="QGridLayout" name="gridLayout_Config">
+
+            <item row="0" column="0">
+              <widget class="QGroupBox" name="groupL1">
+                <property name="title"><string>L1 Cache</string></property>
+                <layout class="QFormLayout" name="formLayout_L1">
+                  <item row="0" column="0"><widget class="QLabel" name="l1s"><property name="text"><string>Size:</string></property></widget></item>
+                  <item row="0" column="1"><layout class="QHBoxLayout" name="hlL1"><item><widget class="QSpinBox" name="spinSizeL1"><property name="maximum"><number>999999</number></property><property name="value"><number>32</number></property></widget></item><item><widget class="QComboBox" name="comboUnitL1"/></item></layout></item>
+                  <item row="1" column="0"><widget class="QLabel" name="l1b"><property name="text"><string>Block Size (B):</string></property></widget></item>
+                  <item row="1" column="1"><widget class="QSpinBox" name="spinBlockL1"><property name="value"><number>64</number></property></widget></item>
+                  <item row="2" column="0"><widget class="QLabel" name="l1p"><property name="text"><string>Policy:</string></property></widget></item>
+                  <item row="2" column="1"><widget class="QComboBox" name="comboPolicyL1"><item><property name="text"><string>LRU</string></property></item><item><property name="text"><string>FIFO</string></property></item><item><property name="text"><string>Random</string></property></item></widget></item>
+                  <item row="3" column="0"><widget class="QLabel" name="l1d"><property name="text"><string>Delay (µs):</string></property></widget></item>
+                  <item row="3" column="1"><widget class="QSpinBox" name="spinDelayL1"><property name="value"><number>1</number></property></widget></item>
+                </layout>
+              </widget>
+            </item>
+
+            <item row="0" column="1">
+              <widget class="QGroupBox" name="groupL2">
+                <property name="title"><string>L2 Cache</string></property>
+                <property name="checkable"><bool>true</bool></property>
+                <property name="checked"><bool>false</bool></property>
+                <layout class="QFormLayout" name="formLayout_L2">
+                  <item row="0" column="0"><widget class="QLabel" name="l2s"><property name="text"><string>Size:</string></property></widget></item>
+                  <item row="0" column="1"><layout class="QHBoxLayout" name="hlL2"><item><widget class="QSpinBox" name="spinSizeL2"><property name="maximum"><number>999999</number></property><property name="value"><number>256</number></property></widget></item><item><widget class="QComboBox" name="comboUnitL2"/></item></layout></item>
+                  <item row="1" column="0"><widget class="QLabel" name="l2b"><property name="text"><string>Block Size (B):</string></property></widget></item>
+                  <item row="1" column="1"><widget class="QSpinBox" name="spinBlockL2"><property name="value"><number>64</number></property></widget></item>
+                  <item row="2" column="0"><widget class="QLabel" name="l2p"><property name="text"><string>Policy:</string></property></widget></item>
+                  <item row="2" column="1"><widget class="QComboBox" name="comboPolicyL2"><item><property name="text"><string>LRU</string></property></item><item><property name="text"><string>FIFO</string></property></item><item><property name="text"><string>Random</string></property></item></widget></item>
+                  <item row="3" column="0"><widget class="QLabel" name="l2d"><property name="text"><string>Delay (µs):</string></property></widget></item>
+                  <item row="3" column="1"><widget class="QSpinBox" name="spinDelayL2"><property name="value"><number>5</number></property></widget></item>
+                </layout>
+              </widget>
+            </item>
+
+            <item row="0" column="2">
+              <widget class="QGroupBox" name="groupL3">
+                <property name="title"><string>L3 Cache</string></property>
+                <property name="checkable"><bool>true</bool></property>
+                <property name="checked"><bool>false</bool></property>
+                <layout class="QFormLayout" name="formLayout_L3">
+                  <item row="0" column="0"><widget class="QLabel" name="l3s"><property name="text"><string>Size:</string></property></widget></item>
+                  <item row="0" column="1"><layout class="QHBoxLayout" name="hlL3"><item><widget class="QSpinBox" name="spinSizeL3"><property name="maximum"><number>999999</number></property><property name="value"><number>2</number></property></widget></item><item><widget class="QComboBox" name="comboUnitL3"/></item></layout></item>
+                  <item row="1" column="0"><widget class="QLabel" name="l3b"><property name="text"><string>Block Size (B):</string></property></widget></item>
+                  <item row="1" column="1"><widget class="QSpinBox" name="spinBlockL3"><property name="value"><number>64</number></property></widget></item>
+                  <item row="2" column="0"><widget class="QLabel" name="l3p"><property name="text"><string>Policy:</string></property></widget></item>
+                  <item row="2" column="1"><widget class="QComboBox" name="comboPolicyL3"><item><property name="text"><string>LRU</string></property></item><item><property name="text"><string>FIFO</string></property></item><item><property name="text"><string>Random</string></property></item></widget></item>
+                  <item row="3" column="0"><widget class="QLabel" name="l3d"><property name="text"><string>Delay (µs):</string></property></widget></item>
+                  <item row="3" column="1"><widget class="QSpinBox" name="spinDelayL3"><property name="value"><number>15</number></property></widget></item>
+                </layout>
+              </widget>
+            </item>
+
+            <item row="1" column="0" colspan="2">
+              <widget class="QGroupBox" name="groupRAM">
+                <property name="title"><string>Main Memory (RAM)</string></property>
+                <layout class="QHBoxLayout" name="hlRAM">
+                  <item><widget class="QLabel" name="lRamS"><property name="text"><string>Size:</string></property></widget></item>
+                  <item><widget class="QSpinBox" name="spinSizeRAM"><property name="maximum"><number>999999</number></property><property name="value"><number>4</number></property></widget></item>
+                  <item><widget class="QComboBox" name="comboUnitRAM"/></item>
+                  <item><widget class="QLabel" name="lRamD"><property name="text"><string>Delay (ms):</string></property></widget></item>
+                  <item><widget class="QSpinBox" name="spinDelayRAM"><property name="value"><number>50</number></property></widget></item>
+                </layout>
+              </widget>
+            </item>
+
+            <item row="1" column="2">
+              <widget class="QGroupBox" name="groupDisk">
+                <property name="title"><string>Hard Disk / SSD</string></property>
+                <layout class="QFormLayout" name="flDisk">
+                  <item row="0" column="0"><widget class="QLabel" name="lDiskS"><property name="text"><string>Size:</string></property></widget></item>
+                  <item row="0" column="1"><layout class="QHBoxLayout" name="hlDisk"><item><widget class="QSpinBox" name="spinSizeDisk"><property name="maximum"><number>999999</number></property><property name="value"><number>1</number></property></widget></item><item><widget class="QComboBox" name="comboUnitDisk"/></item></layout></item>
+                  <item row="1" column="0"><widget class="QLabel" name="lDiskD"><property name="text"><string>Delay (ms):</string></property></widget></item>
+                  <item row="1" column="1"><widget class="QSpinBox" name="spinDelayDisk"><property name="maximum"><number>99999</number></property><property name="value"><number>10</number></property></widget></item>
+                </layout>
+              </widget>
+            </item>
+          </layout>
+        </item>
+
+        <item>
+          <layout class="QHBoxLayout" name="hlBtns">
+            <item><widget class="QPushButton" name="btnStart"><property name="text"><string>START SIMULATION</string></property><property name="styleSheet"><string>background-color: green; color: white; font-weight: bold; padding: 10px;</string></property></widget></item>
+            <item><widget class="QPushButton" name="btnStop"><property name="enabled"><bool>false</bool></property><property name="text"><string>STOP</string></property><property name="styleSheet"><string>background-color: red; color: white; font-weight: bold; padding: 10px;</string></property></widget></item>
+          </layout>
+        </item>
+
+        <item><widget class="QTextEdit" name="txtLog"><property name="readOnly"><bool>true</bool></property></widget></item>
+
+      </layout>
+    </widget>
+  </widget>
+  <resources/>
+  <connections/>
+</ui>
