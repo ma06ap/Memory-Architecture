@@ -13,14 +13,14 @@
 
 using namespace std;
 
-enum Replacement {LRU = 0, FIFO = 1, Random = 2};
+enum Replacement {LRU = 0, FIFO = 1, RR = 2};
 
 class RAM : public Memory {
 private:
     uint16_t pageSize;
     uint64_t numPages;
     Replacement policy;
-    vector<pair<uint32_t,uint64_t>> pages;
+    vector<pair<uint64_t,uint64_t>> pages;
 public:
     RAM(uint64_t size, int baseDelay, uint16_t pageSize, Replacement policy) {
         this->size = size;
@@ -34,8 +34,9 @@ public:
     }
     bool getData(uint64_t address) override {
         uint64_t pageNumber = address / pageSize;
-        for (uint64_t i = 0; i < this->numPages; i++) {
+        for (uint64_t i = 0; i < this->pages.size(); i++) {
             if (pages[i].second == pageNumber) {
+                pages[i].first = unixTime();
                 return true;
             }
         }
@@ -52,7 +53,7 @@ public:
     void replacePage(uint64_t address) {
         uint64_t pageNumber = address / pageSize;
             if (policy == LRU) {
-                uint32_t lruTime = pages[0].first;
+                uint64_t lruTime = pages[0].first;
                 for (auto& page : pages) {
                     if (page.first < lruTime) {
                         lruTime = page.first;
@@ -68,7 +69,7 @@ public:
             } else if (policy == FIFO) {
                 pages.erase(pages.begin());
                 pages.push_back({unixTime(), pageNumber});
-            } else if (policy == Random) {
+            } else if (policy == RR) {
                 pages.erase(pages.begin() + random(0, pages.size() - 1));
                 pages.push_back({unixTime(), pageNumber});
             }
